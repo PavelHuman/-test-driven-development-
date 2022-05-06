@@ -1,0 +1,29 @@
+{
+  "name": "test-driven-development",
+  "version": "1.0.0",
+  "description": "Jest intro",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PavelHuman/-test-driven-development-.git"
+  },
+  "keywords": [
+    "js",
+    "javascript",
+    "jest",
+    "unti",
+    "testing"
+  ],
+  "author": "PavelHuman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PavelHuman/-test-driven-development-/issues"
+  },
+  "homepage": "https://github.com/PavelHuman/-test-driven-development-#readme",
+  "devDependencies": {
+    "jest": "^28.0.3"
+  }
+}

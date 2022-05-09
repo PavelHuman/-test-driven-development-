@@ -6,6 +6,8 @@ export function Calculator(options) {
 
   this.multiplication = (a, b) => Number.parseFloat((a * b).toFixed(options.precision));
 
+  this.division = (a, b) => Number.parseFloat((a / b).toFixed(options.precision));
+
 
 }
 

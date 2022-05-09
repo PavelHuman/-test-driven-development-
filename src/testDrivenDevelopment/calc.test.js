@@ -1,21 +1,4 @@
-import { add } from './calc.js'
 import { Calculator } from './calc.js'
-
-
-// describe('calculator', () => {
-//   it('should perform addition', () => { })
-//   it('should perform subtraction', () => { })
-//   it('should perform multiplication', () => { })
-//   it('should perform division', () => { })
-// })
-
-// describe('calculator', () => {
-//   describe('should perform addition', () => {
-//     it('adds two positive numbers', () => { })
-//     it('adds two negative numbers', () => { })
-//     it('adds one positive and one negative numbers', () => { })
-//   })
-// })
 
 describe('Calculator', () => {
   let calc = null
@@ -24,6 +7,51 @@ describe('Calculator', () => {
       precision: 2
     }
     calc = new Calculator(options)
+  })
+
+  describe('division', () => {
+
+    let calc = null
+    beforeEach(() => {
+      const options = {
+        precision: 11
+      }
+      calc = new Calculator(options)
+    })
+
+    test('division two positive numbers', () => {
+
+      const input = {
+        a: 6.4,
+        b: 2.23
+      }
+      const result = calc.division(input.a, input.b)
+
+      expect(result).toEqual(2.86995515695)
+    })
+
+    test('division two negative numbers', () => {
+
+      const input = {
+        a: -6.4,
+        b: -2.23
+      }
+      const result = calc.division(input.a, input.b)
+
+      expect(result).toEqual(2.86995515695)
+    })
+
+    test('division one positive and one negative numbers', () => {
+
+      const input = {
+        a: 6.4,
+        b: -2.23
+      }
+      const result = calc.division(input.a, input.b)
+
+      expect(result).toEqual(-2.86995515695)
+    })
+
   })
 
   describe('multiplication', () => {
@@ -111,38 +139,34 @@ describe('Calculator', () => {
 
       expect(result).toEqual(6.53)
     })
-
   })
 
   describe('addition', () => {
 
     test('adds two positive numbers', () => {
-      // Given
+
       const input = {
         a: 1.333,
         b: 3.2,
       }
 
-      // When
       const result = calc.add(input.a, input.b)
 
-      // Than
       expect(result).toEqual(4.53)
     })
 
     test('adds two negative numbers', () => {
-      // Given
+
       const input = {
         a: -1.333,
         b: -3.2,
       }
 
-      // When
       const result = calc.add(input.a, input.b)
 
-      // Than
       expect(result).toEqual(-4.53)
     })
+
     test('adds one positive and one negative numbers', () => {
 
       const input = {

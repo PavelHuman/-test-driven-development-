@@ -26,6 +26,54 @@ describe('Calculator', () => {
     calc = new Calculator(options)
   })
 
+  describe('multiplication', () => {
+
+    let calc = null
+    beforeEach(() => {
+      const options = {
+        precision: 3
+      }
+      calc = new Calculator(options)
+    })
+
+    test('multiplication two positive numbers', () => {
+
+      const input = {
+        a: 3.3,
+        b: 1.343
+      }
+
+      const result = calc.multiplication(input.a, input.b)
+
+      expect(result).toEqual(4.432)
+    })
+
+    test('multiplication two negative numbers', () => {
+
+      const input = {
+        a: -3.3,
+        b: -1.343
+      }
+
+      const result = calc.multiplication(input.a, input.b)
+
+      expect(result).toEqual(4.432)
+    })
+
+    test('multiplication one positive and one negative numbers', () => {
+
+      const input = {
+        a: 3.3,
+        b: -1.343
+      }
+
+      const result = calc.multiplication(input.a, input.b)
+
+      expect(result).toEqual(-4.432)
+    })
+
+  })
+
   describe('subtraction', () => {
 
     test('subtraction two positive numbers', () => {

@@ -4,6 +4,8 @@ export function Calculator(options) {
 
   this.subtract = (a, b) => Number.parseFloat((a - b).toFixed(options.precision));
 
+  this.multiplication = (a, b) => Number.parseFloat((a * b).toFixed(options.precision));
+
 
 }
 

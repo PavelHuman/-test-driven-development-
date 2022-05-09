@@ -25,6 +25,47 @@ describe('Calculator', () => {
     }
     calc = new Calculator(options)
   })
+
+  describe('subtraction', () => {
+
+    test('subtraction two positive numbers', () => {
+
+      const input = {
+        a: 5.2,
+        b: 1.333
+      }
+
+      const result = calc.subtract(input.a, input.b)
+
+      expect(result).toEqual(3.87)
+    })
+
+    test('subtraction two negative numbers', () => {
+
+      const input = {
+        a: -5.2,
+        b: -1.333
+      }
+
+      const result = calc.subtract(input.a, input.b)
+
+      expect(result).toEqual(-3.87)
+    })
+
+    test('subtraction one positive and one negative numbers', () => {
+
+      const input = {
+        a: 5.2,
+        b: -1.333
+      }
+
+      const result = calc.subtract(input.a, input.b)
+
+      expect(result).toEqual(6.53)
+    })
+
+  })
+
   describe('addition', () => {
 
     test('adds two positive numbers', () => {

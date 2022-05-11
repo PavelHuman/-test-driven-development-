@@ -11,5 +11,3 @@ export function Calculator(options) {
 
 }
 
-
-

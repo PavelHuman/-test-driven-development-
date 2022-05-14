@@ -1,23 +1,35 @@
 import { Calculator } from './calc.js'
 
 describe('Calculator', () => {
+
   let calc = null
+
   beforeEach(() => {
     const options = {
-      precision: 2
+      precision: 11
     }
     calc = new Calculator(options)
   })
 
-  describe('division', () => {
+  describe('format', () => {
 
-    let calc = null
-    beforeEach(() => {
+    test('должен форматировать результат чисел после точки, если precision 2 то два знака после точки', () => {
+      //1'Given'
       const options = {
-        precision: 11
+        precision: 2
       }
-      calc = new Calculator(options)
+      const calc = new Calculator(options)
+      //2'When'
+      const result = calc.format(3.123)
+      //3'Then'
+      expect(result).toEqual(3.12)
     })
+  })
+
+
+
+
+  describe('division', () => {
 
     test('division two positive numbers', () => {
 
@@ -55,15 +67,14 @@ describe('Calculator', () => {
   })
 
   describe('multiplication', () => {
-
     let calc = null
+
     beforeEach(() => {
       const options = {
         precision: 3
       }
       calc = new Calculator(options)
     })
-
     test('multiplication two positive numbers', () => {
 
       const input = {
@@ -103,7 +114,14 @@ describe('Calculator', () => {
   })
 
   describe('subtraction', () => {
+    let calc = null
 
+    beforeEach(() => {
+      const options = {
+        precision: 2
+      }
+      calc = new Calculator(options)
+    })
     test('subtraction two positive numbers', () => {
 
       const input = {
@@ -142,7 +160,14 @@ describe('Calculator', () => {
   })
 
   describe('addition', () => {
+    let calc = null
 
+    beforeEach(() => {
+      const options = {
+        precision: 2
+      }
+      calc = new Calculator(options)
+    })
     test('adds two positive numbers', () => {
 
       const input = {

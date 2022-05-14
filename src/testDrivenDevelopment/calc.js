@@ -8,6 +8,7 @@ export function Calculator(options) {
 
   this.division = (a, b) => Number.parseFloat((a / b).toFixed(options.precision));
 
-
+  this.format = function () { }
 }
+
 

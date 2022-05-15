@@ -1,28 +1,45 @@
 import { Calculator } from './calc.js'
 
-describe('Calculator', () => {
+describe('Calculator, с точностью в два знака после точки', () => {
 
   let calc = null
 
   beforeEach(() => {
+    //1'Given'
     const options = {
-      precision: 11
+      precision: 2
     }
     calc = new Calculator(options)
   })
 
   describe('format', () => {
 
-    test('должен форматировать результат чисел после точки, если precision 2 то два знака после точки', () => {
-      //1'Given'
-      const options = {
-        precision: 2
-      }
-      const calc = new Calculator(options)
+    test('должен форматировать результат чисел после точки, если precision 2 то 2 знака после точки', () => {
+
       //2'When'
       const result = calc.format(3.123)
       //3'Then'
       expect(result).toEqual(3.12)
+    })
+
+    test('должен форматировать результат чисел после точки, если precision 2 то 2 знака после точки передаю 4.334 получаю 4.33', () => {
+
+      //2'When'
+      const result = calc.format(4.334)
+      //3'Then'
+      expect(result).toEqual(4.33)
+    })
+
+    test('должен форматировать результат чисел после точки, если precision 11 то 11 знака после точки', () => {
+      //1'Given'
+      const options = {
+        precision: 11
+      }
+      const calc = new Calculator(options)
+      //2'When'
+      const result = calc.format(3.122463706811)
+      //3'Then'
+      expect(result).toEqual(3.12246370681)
     })
   })
 
@@ -39,7 +56,7 @@ describe('Calculator', () => {
       }
       const result = calc.division(input.a, input.b)
 
-      expect(result).toEqual(2.86995515695)
+      expect(result).toEqual(2.87)
     })
 
     test('division two negative numbers', () => {
@@ -50,7 +67,7 @@ describe('Calculator', () => {
       }
       const result = calc.division(input.a, input.b)
 
-      expect(result).toEqual(2.86995515695)
+      expect(result).toEqual(2.87)
     })
 
     test('division one positive and one negative numbers', () => {
@@ -61,20 +78,13 @@ describe('Calculator', () => {
       }
       const result = calc.division(input.a, input.b)
 
-      expect(result).toEqual(-2.86995515695)
+      expect(result).toEqual(-2.87)
     })
 
   })
 
   describe('multiplication', () => {
-    let calc = null
 
-    beforeEach(() => {
-      const options = {
-        precision: 3
-      }
-      calc = new Calculator(options)
-    })
     test('multiplication two positive numbers', () => {
 
       const input = {
@@ -84,7 +94,7 @@ describe('Calculator', () => {
 
       const result = calc.multiplication(input.a, input.b)
 
-      expect(result).toEqual(4.432)
+      expect(result).toEqual(4.43)
     })
 
     test('multiplication two negative numbers', () => {
@@ -96,7 +106,7 @@ describe('Calculator', () => {
 
       const result = calc.multiplication(input.a, input.b)
 
-      expect(result).toEqual(4.432)
+      expect(result).toEqual(4.43)
     })
 
     test('multiplication one positive and one negative numbers', () => {
@@ -108,20 +118,13 @@ describe('Calculator', () => {
 
       const result = calc.multiplication(input.a, input.b)
 
-      expect(result).toEqual(-4.432)
+      expect(result).toEqual(-4.43)
     })
 
   })
 
   describe('subtraction', () => {
-    let calc = null
 
-    beforeEach(() => {
-      const options = {
-        precision: 2
-      }
-      calc = new Calculator(options)
-    })
     test('subtraction two positive numbers', () => {
 
       const input = {
@@ -160,14 +163,7 @@ describe('Calculator', () => {
   })
 
   describe('addition', () => {
-    let calc = null
 
-    beforeEach(() => {
-      const options = {
-        precision: 2
-      }
-      calc = new Calculator(options)
-    })
     test('adds two positive numbers', () => {
 
       const input = {

@@ -15,3 +15,7 @@ test('translates dD to one and a half dev days', () => {
 test('translates q to half a qa day', () => {
   expect(translate('q')).toEqual({ 'QA': 0.5 })
 })
+
+test('handle more than one make like dddQ', () => {
+  expect(translate('dddQ')).toEqual({ 'QA': 1.0, 'Dev': 1.5 })
+})
